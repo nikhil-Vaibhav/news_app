@@ -20,9 +20,9 @@ Widget NewsItem(BuildContext context, News news) {
           child: Column(
             children: [
               Image(
-                  height: 150,
+                  height: 170,
                   width: double.infinity,
-                  fit: BoxFit.contain,
+                  fit: BoxFit.fill,
                   image: NetworkImage(news.thumbnailImage!)),
               const SizedBox(height: 10),
               Align(

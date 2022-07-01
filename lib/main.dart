@@ -31,8 +31,8 @@ class _MyAppState extends State<MyApp> {
     });
     
     return MaterialApp(routes: {
-      // "/": (context) => const SplashScreen(),
-      "/": (context) => const MainPageLayout(),
+      "/": (context) => const SplashScreen(),
+      "/main_page": (context) => const MainPageLayout(),
       "/detail": (context) => const DetailNewsPage(),
     });
   }

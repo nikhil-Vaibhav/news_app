@@ -48,7 +48,7 @@ class _MainPageLayoutState extends State<MainPageLayout> {
             BottomNavigationBarItem(
                 icon: Icon(Icons.telegram), label: "Tip Us"),
             BottomNavigationBarItem(
-                icon: Icon(Icons.article_outlined), label: "Blog Post"),
+                icon: Icon(Icons.article_outlined), label: "Det Sker"),
           ]),
     );
   }

@@ -21,10 +21,7 @@ class _DetailNewsPageState extends State<DetailNewsPage> {
         iconTheme: const IconThemeData(color: Colors.black),
         backgroundColor: Colors.white,
         title: const Center(
-          child: Text(
-            "MitVestsjaelland.dk",
-            style: TextStyle(color: Colors.blue),
-          ),
+          child: Image(image: AssetImage("assets/images/MitV_Blue.png")),
         ),
       ),
 
