@@ -16,7 +16,7 @@ class _BlogPostPageState extends State<BlogPostPage> {
   final ScrollController _scrollCon = ScrollController();
   bool isLoading = false;
   List<News> newsList = [];
-  int offset = 1;
+  int offset = 0;
   final DatabaseManager _dbManager = DatabaseManager();
   
   @override
@@ -73,7 +73,37 @@ class _BlogPostPageState extends State<BlogPostPage> {
         controller: _scrollCon,
         itemCount: newsList.length,
         itemBuilder: ((context, index) {
-          return NewsItem(context, newsList[index]);
+          var news = newsList[index];
+          return GestureDetector(
+            onTap: () {
+              Navigator.pushNamed(context, "/detail", arguments: news);
+            },
+            child: Card(
+                elevation: 4,
+                child: Container(
+                  padding:
+                  const EdgeInsets.only(left: 12, right: 12, top: 0, bottom: 0),
+                  child: Row(
+                    children: [
+                      Image(
+                          height: 100,
+                          width: 100,
+                          fit: BoxFit.contain,
+                          image: NetworkImage(news.thumbnailImage!)),
+                      const SizedBox(width: 20),
+                      Flexible(
+
+                          child: Text(
+                            news.title,
+                            maxLines: 2,
+                            overflow: TextOverflow.ellipsis,
+                            style: const TextStyle(
+                                color: Colors.black, fontSize: 18, fontWeight: FontWeight.bold),
+                          )),
+                    ],
+                  ),
+                )),
+          );
         }));
   }
 }

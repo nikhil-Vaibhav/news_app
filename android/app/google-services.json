@@ -1,0 +1,83 @@
+{
+  "project_info": {
+    "project_number": "2454166793",
+    "firebase_url": "https://mitv-eab8d-default-rtdb.firebaseio.com",
+    "project_id": "mitv-eab8d",
+    "storage_bucket": "mitv-eab8d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:2454166793:android:eddff49f58bf364dddc7d8",
+        "android_client_info": {
+          "package_name": "com.example.news_application"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "2454166793-4tuputil4v0r47ie9ffdu4cok9pivq62.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCcWV081fZ3qhbq9MhUvKZ0sPxU2ttaOW8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "2454166793-4tuputil4v0r47ie9ffdu4cok9pivq62.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "2454166793-c0vml5gdqub59mmpi3h91arjo4aql9m8.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.mitv.newsapp"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:2454166793:android:45ffb7275f972d7addc7d8",
+        "android_client_info": {
+          "package_name": "com.mitv.newsapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "2454166793-4tuputil4v0r47ie9ffdu4cok9pivq62.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCcWV081fZ3qhbq9MhUvKZ0sPxU2ttaOW8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "2454166793-4tuputil4v0r47ie9ffdu4cok9pivq62.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "2454166793-c0vml5gdqub59mmpi3h91arjo4aql9m8.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.mitv.newsapp"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

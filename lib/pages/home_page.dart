@@ -14,9 +14,8 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   final ScrollController _scrollCon = ScrollController();
   bool isLoading = false;
-  late Future<List<News>> _futureOfNews;
   List<News> newsList = [];
-  int offset = 1;
+  int offset = 0;
   final DatabaseManager _dbManager = DatabaseManager();
 
   @override

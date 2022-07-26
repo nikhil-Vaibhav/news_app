@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:news_app/pages/tip_us_page.dart';
 
@@ -6,7 +5,7 @@ import 'blog_posts.dart';
 import 'home_page.dart';
 
 class MainPageLayout extends StatefulWidget {
-  const MainPageLayout({ Key? key }) : super(key: key);
+  const MainPageLayout({Key? key}) : super(key: key);
 
   @override
   State<MainPageLayout> createState() => _MainPageLayoutState();
@@ -15,21 +14,22 @@ class MainPageLayout extends StatefulWidget {
 class _MainPageLayoutState extends State<MainPageLayout> {
   Widget? mainWidget;
   int _selectedIndex = 0;
+
   @override
   Widget build(BuildContext context) {
-    
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
         title: const Center(
-          child: Image(image: AssetImage("assets/images/MitV_Blue.png")),
+          child: Padding(
+            padding: EdgeInsets.all(16.0),
+            child: Image(image: AssetImage("assets/images/MitV_Blue.png")),
+          ),
         ),
       ),
-      
       body: mainWidget ?? const HomePage(),
-
       bottomNavigationBar: BottomNavigationBar(
-        currentIndex: _selectedIndex,
+          currentIndex: _selectedIndex,
           onTap: (index) {
             _selectedIndex = index;
             switch (index) {
@@ -44,16 +44,17 @@ class _MainPageLayoutState extends State<MainPageLayout> {
             }
           },
           items: const [
-            BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
+            BottomNavigationBarItem(icon: Icon(Icons.home), label: "Forside"),
             BottomNavigationBarItem(
-                icon: Icon(Icons.telegram), label: "Tip Us"),
+                icon: Icon(Icons.telegram), label: "Tip Os"),
             BottomNavigationBarItem(
                 icon: Icon(Icons.article_outlined), label: "Det Sker"),
           ]),
     );
   }
+
   // change pages
-    void changeTo(Widget newWidget) {
+  void changeTo(Widget newWidget) {
     setState(() {
       mainWidget = newWidget;
     });
