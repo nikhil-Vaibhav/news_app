@@ -112,7 +112,7 @@ dom.Document getDom(String t) {
 Widget getFooter() {
   return Container(
     width: double.infinity,
-    height: 200,
+    height: 250,
     color: const Color(0XFF070707),
     padding: EdgeInsets.all(24),
     child: Center(
@@ -121,9 +121,9 @@ Widget getFooter() {
       crossAxisAlignment: CrossAxisAlignment.center,
       children: const [
         Align(
-          alignment: Alignment.center,
           child: Text(
             "Lokale nyheder hele døgnet!\nTip os altid gerne her i appen, eller på telefon 42 74 42 74 ",
+
             style: TextStyle(
               fontFamily: 'Montserrat',
                 fontSize: 15,
@@ -132,7 +132,10 @@ Widget getFooter() {
           ),
         ),
         SizedBox(height: 20),
-        Image(image: AssetImage("assets/images/Footer_logo.png")),
+        Image(
+            height: 120,
+            width: 200,
+            image: AssetImage("assets/images/Footer_logo.png")),
 
       ],
     )),

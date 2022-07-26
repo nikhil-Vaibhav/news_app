@@ -31,7 +31,7 @@ class _TipUsPageState extends State<TipUsPage> {
                     child: Text(
                       "Tip Os!",
                       style: TextStyle(
-
+                          fontFamily: 'Montserrat',
                           color: Colors.black,
                           fontSize: 43,
                           fontWeight: FontWeight.bold),
