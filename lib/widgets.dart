@@ -101,7 +101,6 @@ Widget DetailNews(News news) {
 
       getFooter()
     ]),
-
   );
 }
 
@@ -120,23 +119,37 @@ Widget getFooter() {
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: const [
-        Align(
-          child: Text(
-            "Lokale nyheder hele døgnet!\nTip os altid gerne her i appen, eller på telefon 42 74 42 74 ",
-
-            style: TextStyle(
+        Text(
+          "Lokale nyheder hele døgnet!",
+          style: TextStyle(
               fontFamily: 'Montserrat',
-                fontSize: 15,
-                fontStyle: FontStyle.italic,
-                color: Colors.white),
-          ),
+              fontSize: 15,
+              fontStyle: FontStyle.italic,
+              color: Colors.white),
+        ),
+        SizedBox(height: 10),
+        Text(
+          "Tip os altid gerne her i appen,",
+          style: TextStyle(
+              fontFamily: 'Montserrat',
+              fontSize: 15,
+              fontStyle: FontStyle.italic,
+              color: Colors.white),
+        ),
+        SizedBox(height: 10),
+        Text(
+          "eller på telefon : 42 74 42 74 ",
+          style: TextStyle(
+              fontFamily: 'Montserrat',
+              fontSize: 15,
+              fontStyle: FontStyle.italic,
+              color: Colors.white),
         ),
         SizedBox(height: 20),
         Image(
-            height: 120,
+            height: 105,
             width: 200,
             image: AssetImage("assets/images/Footer_logo.png")),
-
       ],
     )),
   );

@@ -34,6 +34,7 @@ class _HomePageState extends State<HomePage> {
   void _load() async {
     loading(true);
     List<News> loaded = await _dbManager.getRecentNews(offset);
+
     newsList.addAll(loaded);
     offset += 10;
     loading(false);

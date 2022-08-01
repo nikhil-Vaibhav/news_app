@@ -32,6 +32,7 @@ class DatabaseService {
     for(News news in newsList) {
       news.category = await getCategory(int.parse(news.category));
     }
+    debugPrint("Loaded : ${newsList.length}");
     return newsList;
   }
 

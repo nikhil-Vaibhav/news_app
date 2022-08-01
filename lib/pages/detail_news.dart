@@ -23,9 +23,7 @@ class _DetailNewsPageState extends State<DetailNewsPage> {
       appBar: AppBar(
         iconTheme: const IconThemeData(color: Colors.black),
         backgroundColor: Colors.white,
-        title: const Center(
-          child: Image(image: AssetImage("assets/images/MitV_Blue.png")),
-        ),
+        title: const Image(image: AssetImage("assets/images/MitV_Blue.png")),
       ),
       body: DetailNews(news),
     );
