@@ -3,6 +3,11 @@ import 'package:news_app/pages/tip_us_page.dart';
 
 import 'blog_posts.dart';
 import 'home_page.dart';
+import 'dart:async';
+import 'package:firebase_messaging/firebase_messaging.dart';
+import 'package:news_app/services/local_notification_service.dart';
+
+import '../main.dart';
 
 class MainPageLayout extends StatefulWidget {
   const MainPageLayout({Key? key}) : super(key: key);
@@ -14,6 +19,57 @@ class MainPageLayout extends StatefulWidget {
 class _MainPageLayoutState extends State<MainPageLayout> {
   Widget? mainWidget;
   int _selectedIndex = 0;
+  late final FirebaseMessaging _messaging;
+
+@override
+  void initState() {
+    super.initState();
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    LocalNotificationService.initialize(context);
+      registerNotification();
+  }
+
+  void registerNotification() async {
+    _messaging = FirebaseMessaging.instance;
+
+    _messaging.requestPermission().then((value) {
+      debugPrint("ss permission : $value");
+    });
+
+    _messaging.getToken().then((token) {
+      debugPrint("ss token : $token");
+    });
+
+    _messaging.getAPNSToken().then((value) {
+      debugPrint("ss APNS token : $value");
+    });
+
+    /// it gives us the msg and opens the app from terminated state
+    _messaging.getInitialMessage().then((message) {
+      if (message != null) {
+        Navigator.of(context).pushNamed("/from_push", arguments: message.data["id"]);
+      }
+    });
+
+    /// Work when app is in foreground
+    FirebaseMessaging.onMessage.listen((message) {
+      if (message.notification != null) {
+      
+      LocalNotificationService.display(message);
+}
+    });
+
+    /// app in background but opened and user taps on Notification
+    FirebaseMessaging.onMessageOpenedApp.listen((message) {
+        Navigator.of(context)
+          .pushNamed("/from_push", arguments: message.data["id"]);
+    });
+  }
+
 
   @override
   Widget build(BuildContext context) {

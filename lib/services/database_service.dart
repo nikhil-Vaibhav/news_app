@@ -11,25 +11,26 @@ class DatabaseService {
 
   //private constructor
   DatabaseService._internal();
+
   //singleton
   static final DatabaseService _databaseService = DatabaseService._internal();
 
   factory DatabaseService() {
     return _databaseService;
   }
-  
 
   // for home page getting recent news
   Future<List<News>> getRecentNewsPosts(int offset) async {
-    
-    var request = http.Request('GET',
-        Uri.parse(baseURL + 'posts?offset=$offset&per_page=10&page_id=$recentPageID'));
+    var request = http.Request(
+        'GET',
+        Uri.parse(baseURL +
+            'posts?offset=$offset&per_page=10&page_id=$recentPageID'));
     http.StreamedResponse response = await request.send();
 
     List<dynamic> json = jsonDecode(await response.stream.bytesToString());
-    
+
     List<News> newsList = json.map((e) => News.fromJSON(e)).toList();
-    for(News news in newsList) {
+    for (News news in newsList) {
       news.category = await getCategory(int.parse(news.category));
     }
     debugPrint("Loaded : ${newsList.length}");
@@ -38,8 +39,7 @@ class DatabaseService {
 
   // getting name of category
   Future<String> getCategory(int catID) async {
-    var request = http.Request('GET',
-        Uri.parse(baseURL + 'categories/$catID'));
+    var request = http.Request('GET', Uri.parse(baseURL + 'categories/$catID'));
     http.StreamedResponse response = await request.send();
 
     dynamic json = jsonDecode(await response.stream.bytesToString());
@@ -47,20 +47,29 @@ class DatabaseService {
   }
 
   // for blog posts page
-Future<List<News>> getAllBlogPosts(int offset) async {
-    
-    var request = http.Request('GET',
-        Uri.parse(baseURL + 'posts?offset=$offset&per_page=10'));
+  Future<List<News>> getAllBlogPosts(int offset) async {
+    var request = http.Request(
+        'GET', Uri.parse(baseURL + 'posts?offset=$offset&per_page=10'));
     http.StreamedResponse response = await request.send();
 
     List<dynamic> json = jsonDecode(await response.stream.bytesToString());
-    
+
     List<News> newsList = json.map((e) => News.fromJSON(e)).toList();
-    for(News news in newsList) {
+    for (News news in newsList) {
       news.category = await getCategory(int.parse(news.category));
     }
     return newsList;
   }
-  
 
+  Future<News> getNewsArticle(String id) async {
+    var request = http.Request(
+        'GET', Uri.parse(baseURL + 'posts/$id'));
+    http.StreamedResponse response = await request.send();
+
+    var json = jsonDecode(await response.stream.bytesToString());
+    // debugPrint("Loaded: $json");
+    News news = News.fromJSON(json);
+    news.category = await getCategory(int.parse(news.category));
+    return news;
+  }
 }

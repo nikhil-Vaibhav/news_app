@@ -3,6 +3,8 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:news_app/services/local_notification_service.dart';
 
+import '../main.dart';
+
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
 
@@ -11,53 +13,12 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
-
   late final FirebaseMessaging _messaging;
 
-  @override
-  void initState() {
-    super.initState();
-    registerNotification();
-  }
+  
 
-  void registerNotification() async {
+  // TODO : try with didchangedependencies method
 
-
-    _messaging = FirebaseMessaging.instance;
-
-    _messaging.requestPermission().then((value) {
-      debugPrint("$value");
-    });
-
-    _messaging.getToken().then((token) {
-      debugPrint("$token");
-    });
-
-    _messaging.getAPNSToken().then((value) {
-      debugPrint("$value");
-    });
-
-    /// it gives us the msg and opens the app from terminated state
-    _messaging.getInitialMessage().then((message) {
-      if(message != null) {
-        Navigator.of(context).pushNamed("/main_page");
-      }
-    });
-
-    /// Work when app is in foreground
-    FirebaseMessaging.onMessage.listen((message){
-      if(message.notification != null) {
-
-      }
-      LocalNotificationService.display(message);
-
-    });
-
-    /// app in background but opened and user taps on Notification
-    FirebaseMessaging.onMessageOpenedApp.listen((message) {
-      Navigator.of(context).pushNamed("/main_page");
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -77,15 +38,11 @@ class _SplashScreenState extends State<SplashScreen> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: const [
                 Image(image: AssetImage("assets/images/MitV_White.png")),
-
-                SizedBox(
-                  height: 10
-                ),
-
+                SizedBox(height: 10),
                 Text(
                   "Lokale Nyheder hele døgnet!",
                   style: TextStyle(
-                    fontSize: 20,
+                      fontSize: 20,
                       fontStyle: FontStyle.italic,
                       fontWeight: FontWeight.bold,
                       color: Colors.white),

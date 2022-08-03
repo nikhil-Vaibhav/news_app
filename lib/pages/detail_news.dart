@@ -14,16 +14,15 @@ class DetailNewsPage extends StatefulWidget {
 class _DetailNewsPageState extends State<DetailNewsPage> {
   @override
   Widget build(BuildContext context) {
-    News news = ModalRoute
-        .of(context)!
-        .settings
-        .arguments as News;
+    News news = ModalRoute.of(context)!.settings.arguments as News;
 
     return Scaffold(
       appBar: AppBar(
         iconTheme: const IconThemeData(color: Colors.black),
         backgroundColor: Colors.white,
-        title: const Image(image: AssetImage("assets/images/MitV_Blue.png")),
+        title: const Padding(
+            padding: EdgeInsets.only(right: 40),
+            child: Image(image: AssetImage("assets/images/MitV_Blue.png"))),
       ),
       body: DetailNews(news),
     );

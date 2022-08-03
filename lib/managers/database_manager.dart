@@ -12,4 +12,8 @@ class DatabaseManager{
   Future<List<News>> getAllBlogPosts(int offset) {
     return _service.getAllBlogPosts(offset);
   }
+
+  Future<News> getNewsArticle(String id) {
+    return _service.getNewsArticle(id);
+  }
 }
