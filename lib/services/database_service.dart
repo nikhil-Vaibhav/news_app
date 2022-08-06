@@ -8,6 +8,7 @@ import '../news.dart';
 
 class DatabaseService {
   final String recentPageID = "1499";
+  final String requiredFields = "id,title,content,categories,yoast_head_json,link";
 
   //private constructor
   DatabaseService._internal();
@@ -24,7 +25,7 @@ class DatabaseService {
     var request = http.Request(
         'GET',
         Uri.parse(baseURL +
-            'posts?offset=$offset&per_page=10&page_id=$recentPageID'));
+            'posts?_fields=$requiredFields&offset=$offset&per_page=10&page_id=$recentPageID'));
     http.StreamedResponse response = await request.send();
 
     List<dynamic> json = jsonDecode(await response.stream.bytesToString());
@@ -49,7 +50,7 @@ class DatabaseService {
   // for blog posts page
   Future<List<News>> getAllBlogPosts(int offset) async {
     var request = http.Request(
-        'GET', Uri.parse(baseURL + 'posts?offset=$offset&per_page=10'));
+        'GET', Uri.parse(baseURL + 'posts?_fields=$requiredFields&categories=23305&offset=$offset&per_page=10'));
     http.StreamedResponse response = await request.send();
 
     List<dynamic> json = jsonDecode(await response.stream.bytesToString());

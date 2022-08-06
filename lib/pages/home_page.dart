@@ -24,7 +24,7 @@ class _HomePageState extends State<HomePage> {
     _load();
     _scrollCon.addListener(() {
       if (_scrollCon.offset >= _scrollCon.position.maxScrollExtent &&
-          !_scrollCon.position.outOfRange) {
+          !_scrollCon.position.outOfRange && !isLoading) {
         // reached bottom
         _load();
       }

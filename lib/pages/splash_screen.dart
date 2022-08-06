@@ -15,11 +15,6 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
   late final FirebaseMessaging _messaging;
 
-  
-
-  // TODO : try with didchangedependencies method
-
-
   @override
   Widget build(BuildContext context) {
     Timer(const Duration(seconds: 4), () {

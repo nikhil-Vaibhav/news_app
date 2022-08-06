@@ -18,12 +18,11 @@ Widget NewsItem(BuildContext context, News news) {
           child: Column(
             children: [
               Image(
-                  height: 170,
-                  width: 170*news.imageWidth/news.imageHeight,
+                  height: 230,
                   fit: BoxFit.fill,
                   image: NetworkImage(news.thumbnailImage!)),
               const SizedBox(height: 10),
-              Align(
+ Align(
                 alignment: Alignment.centerLeft,
                 child: Text(
                   news.category,
